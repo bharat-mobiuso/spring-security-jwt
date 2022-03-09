@@ -79,3 +79,13 @@ public class ResourceController {
 
 
 }
+
+
+// apis
+/*
+    /authenticate       -> POST api Require Json body { "username" : /username, "password" : /password } -> get jwt
+    /hello              -> GET require Auth as Bearer Token
+    /weather            -> GET require Param city  ->/weather?city=/cityname  -> Return WeatherDetails and Location Details
+    /covid              -> GET -> Return List of Countries with covid data
+    /covid/country      -> GET require Param name  ->/covid/country?name=/countryName -> Return Covid Data for countryName
+ */

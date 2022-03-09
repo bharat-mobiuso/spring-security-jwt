@@ -30,8 +30,18 @@ public class WeatherDataService {
         Weather responseEntity =
                 restTemplate.getForObject(WEATHER_API_URL, Weather.class);
 
-        //log.info("Weather_API: " + weatherApiKey);
-        return new WeatherOutput(responseEntity.getLocation(),responseEntity.getCurrent().getCondition());
+        log.info("WeatherOutput " + weatherApiKey);
+        WeatherOutput weatherOutput =  new WeatherOutput(
+                responseEntity.getLocation(),
+                responseEntity.getCurrent().getCondition(),
+                responseEntity.getCurrent().getLastUpdated(),
+                responseEntity.getCurrent().getTemperatureC(),
+                responseEntity.getCurrent().getTemperatureF(),
+                responseEntity.getCurrent().getDay()
+        );
+        log.info("WeatherOutput " + weatherOutput.getLastUpdated());
+        return weatherOutput;
+        //return responseEntity;
     }
 
 }

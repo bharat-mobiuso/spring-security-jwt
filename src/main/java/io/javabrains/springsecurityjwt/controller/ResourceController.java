@@ -38,8 +38,8 @@ public class ResourceController {
         return ("<h1>Hello World</h1>");
     }
 
-    @GetMapping("/weather/{city}")
-    public WeatherOutput getWeather(@PathVariable("city") String city){
+    @GetMapping("/weather")
+    public WeatherOutput getWeather(@RequestParam(defaultValue = "london") String city){
         //log.info("CITY : " + city + "OUTPUT: " + weatherDataService.getWeather(city).toString().toString());
         return weatherDataService.getWeather(city);
     }

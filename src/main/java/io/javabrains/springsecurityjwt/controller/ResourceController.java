@@ -2,7 +2,9 @@ package io.javabrains.springsecurityjwt.controller;
 
 import io.javabrains.springsecurityjwt.models.auth.AuthenticationRequest;
 import io.javabrains.springsecurityjwt.models.auth.AuthenticationResponse;
+import io.javabrains.springsecurityjwt.models.covid.Country;
 import io.javabrains.springsecurityjwt.models.weather.WeatherOutput;
+import io.javabrains.springsecurityjwt.services.CovidDetailsService;
 import io.javabrains.springsecurityjwt.services.MyUserDetailsService;
 import io.javabrains.springsecurityjwt.services.WeatherDataService;
 import io.javabrains.springsecurityjwt.util.JwtUtil;
@@ -31,6 +33,9 @@ public class ResourceController {
     private WeatherDataService weatherDataService;
 
     @Autowired
+    private CovidDetailsService covidDetailsService;
+
+    @Autowired
     private JwtUtil jwtTokenUtil;
 
     @GetMapping("/hello")
@@ -42,6 +47,11 @@ public class ResourceController {
     public WeatherOutput getWeather(@RequestParam(defaultValue = "london") String city){
         //log.info("CITY : " + city + "OUTPUT: " + weatherDataService.getWeather(city).toString().toString());
         return weatherDataService.getWeather(city);
+    }
+
+    @GetMapping("/covid")
+    public Country[] getCovidDetails(){
+        return covidDetailsService.getCovidDetails();
     }
 
     @PostMapping("/authenticate")

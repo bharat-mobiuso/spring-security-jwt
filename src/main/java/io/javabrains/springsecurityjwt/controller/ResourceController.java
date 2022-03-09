@@ -54,6 +54,11 @@ public class ResourceController {
         return covidDetailsService.getCovidDetails();
     }
 
+    @GetMapping("/covid/country")
+    public Country getCovidDetails(@RequestParam(defaultValue = "IND") String name){
+        return covidDetailsService.getCovidDetailsByCountry(name);
+    }
+
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {

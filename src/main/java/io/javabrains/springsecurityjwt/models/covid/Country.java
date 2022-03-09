@@ -9,43 +9,43 @@ import java.util.Date;
 public class Country {
 
     @JsonProperty("updated")
-    private int updatedTime;
+    private long updatedTime;
 
     @JsonProperty("country")
     private String countryName;
 
     @JsonProperty("cases")
-    private int totalCases;
+    private long totalCases;
 
     @JsonProperty("todayCases")
-    private int todayCases;
+    private long todayCases;
 
     @JsonProperty("deaths")
-    private int totalDeaths;
+    private long totalDeaths;
 
     @JsonProperty("todayDeaths")
-    private int todayDeaths;
+    private long todayDeaths;
 
     @JsonProperty("recovered")
-    private int totalRecovered;
+    private long totalRecovered;
 
     @JsonProperty("todayRecovered")
-    private int todayRecovered;
+    private long todayRecovered;
 
     @JsonProperty("active")
-    private int activeCases;
+    private long activeCases;
 
     @JsonProperty("critical")
-    private int criticalCases;
+    private long criticalCases;
 
     @JsonProperty("population")
-    private int population;
+    private long population;
 
     public String getUpdatedTime() {
         return new Date(updatedTime).toString();
     }
 
-    public void setUpdatedTime(int updatedTime) {
+    public void setUpdatedTime(long updatedTime) {
         this.updatedTime = updatedTime;
     }
 
@@ -57,75 +57,75 @@ public class Country {
         this.countryName = countryName;
     }
 
-    public int getTotalCases() {
+    public long getTotalCases() {
         return totalCases;
     }
 
-    public void setTotalCases(int totalCases) {
+    public void setTotalCases(long totalCases) {
         this.totalCases = totalCases;
     }
 
-    public int getTodayCases() {
+    public long getTodayCases() {
         return todayCases;
     }
 
-    public void setTodayCases(int todayCases) {
+    public void setTodayCases(long todayCases) {
         this.todayCases = todayCases;
     }
 
-    public int getTotalDeaths() {
+    public long getTotalDeaths() {
         return totalDeaths;
     }
 
-    public void setTotalDeaths(int totalDeaths) {
+    public void setTotalDeaths(long totalDeaths) {
         this.totalDeaths = totalDeaths;
     }
 
-    public int getTodayDeaths() {
+    public long getTodayDeaths() {
         return todayDeaths;
     }
 
-    public void setTodayDeaths(int todayDeaths) {
+    public void setTodayDeaths(long todayDeaths) {
         this.todayDeaths = todayDeaths;
     }
 
-    public int getTotalRecovered() {
+    public long getTotalRecovered() {
         return totalRecovered;
     }
 
-    public void setTotalRecovered(int totalRecovered) {
+    public void setTotalRecovered(long totalRecovered) {
         this.totalRecovered = totalRecovered;
     }
 
-    public int getTodayRecovered() {
+    public long getTodayRecovered() {
         return todayRecovered;
     }
 
-    public void setTodayRecovered(int todayRecovered) {
+    public void setTodayRecovered(long todayRecovered) {
         this.todayRecovered = todayRecovered;
     }
 
-    public int getActiveCases() {
+    public long getActiveCases() {
         return activeCases;
     }
 
-    public void setActiveCases(int activeCases) {
+    public void setActiveCases(long activeCases) {
         this.activeCases = activeCases;
     }
 
-    public int getCriticalCases() {
+    public long getCriticalCases() {
         return criticalCases;
     }
 
-    public void setCriticalCases(int criticalCases) {
+    public void setCriticalCases(long criticalCases) {
         this.criticalCases = criticalCases;
     }
 
-    public int getPopulation() {
+    public long getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(long population) {
         this.population = population;
     }
 }

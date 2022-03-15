@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -6,16 +8,27 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "cardType", "cardNumber", "cardSecurity", "expireMonth", "expireYear", "firstName", "lastName", "billingStreetAddress", "billingCity", "billingState", "billingZip" })
 public class CreditCard {
 
+    @JsonProperty("CardType")
     private String CardType;                // visa|amex|discover|mastercard
+    @JsonProperty("CardNumber")
     private int CardNumber;                 // 16 Digit
+    @JsonProperty("CardSecurity")
     private int CardSecurity;               // 3-5 Digit
+    @JsonProperty("ExpireMonth")
     private short ExpireMonth;              // 2 Digit
+    @JsonProperty("ExpireYear")
     private short ExpireYear;               // 4 Digit
+    @JsonProperty("FirstName")
     private String FirstName;               // 64 Char
+    @JsonProperty("LastName")
     private String LastName;                // 64 Char
+    @JsonProperty("BillingStreetAddress")
     private String BillingStreetAddress;    // 128 Char
+    @JsonProperty("BillingCity")
     private String BillingCity;             // 128 Char
+    @JsonProperty("BillingState")
     private String BillingState;            // 16 Char
+    @JsonProperty("BillingZip")
     private int BillingZip;                 // 5 or 5-4 Digit
 
     @XmlElement(name = "CardType")

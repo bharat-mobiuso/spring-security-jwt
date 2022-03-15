@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -6,8 +8,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "governmentId","gender", "dateOfBirth" })
 public class DemographicDetail {
 
+    @JsonProperty("DateOfBirth")
     private String DateOfBirth;         // format : YYYY-MM-DD
-    private char Gender;                // M | F
+    @JsonProperty("Gender")
+    private String Gender;              // M | F
+    @JsonProperty("GovernmentId")
     private GovernmentId governmentId;  // SSN or Driving Licence Number
 
     @XmlElement(name = "DateOfBirth")
@@ -15,9 +20,8 @@ public class DemographicDetail {
         DateOfBirth = dateOfBirth;
     }
 
-
     @XmlElement(name = "Gender")
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         Gender = gender;
     }
 
@@ -30,7 +34,7 @@ public class DemographicDetail {
         return DateOfBirth;
     }
 
-    public char getGender() {
+    public String getGender() {
         return Gender;
     }
 

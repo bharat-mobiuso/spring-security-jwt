@@ -1,14 +1,21 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 public class SupportingDocumentation {
 
+    @JsonProperty("authorization")
     private String authorization;               // Yes | No
+    @JsonProperty("spouse")
     private String spouse;                      // Yes | No
+    @JsonProperty("OriginalFileName")
     private String OriginalFileName;            // 64 Char
+    @JsonProperty("Name")
     private String Name;                        // 255 Char
+    @JsonProperty("EncodedContent")
     private String EncodedContent;              // encode file
 
     @XmlAttribute

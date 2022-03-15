@@ -1,14 +1,20 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 public class CreditCardPayment {
 
+    @JsonProperty("Amount")
     private int Amount;
+    @JsonProperty("SalesTax")
     private int SalesTax;
+    @JsonProperty("LastFour")
     private String LastFour;                // 4 Char
+    @JsonProperty("TransactionId")
     private String TransactionId;           // 32 Char
+    @JsonProperty("AuthorizationCode")
     private String AuthorizationCode;       // 8 Char
 
     @XmlElement(name = "Amount")

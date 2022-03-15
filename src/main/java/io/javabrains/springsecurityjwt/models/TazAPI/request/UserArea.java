@@ -1,12 +1,17 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
 
 public class UserArea {
 
+    @JsonProperty("CreditCard")
     private CreditCard creditCard;
+    @JsonProperty("CreditCardPayment")
     private CreditCardPayment creditCardPayment;
 
+    @JsonProperty("PositionDetails")
     private PositionDetails positionDetails;
 
     @XmlElement(name = "CreditCard")

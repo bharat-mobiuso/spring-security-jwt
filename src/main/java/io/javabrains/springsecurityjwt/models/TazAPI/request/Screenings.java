@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,9 +10,12 @@ import java.util.List;
 @XmlType(propOrder = { "useConfigurationDefaults", "screening","additionalItems" })
 public class Screenings {
 
+    @JsonProperty("useConfigurationDefaults")
     private String useConfigurationDefaults;        // Yes | No
 
+    @JsonProperty("Screening")
     private List<Screening> screening;
+    @JsonProperty("AdditionalItems")
     private AdditionalItems additionalItems;
 
     @XmlAttribute

@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,12 +9,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "type", "text" })
 public class AdditionalItems {
 
-    private String Type;
+    @JsonProperty("type")
+    private String type;
+    @JsonProperty("Text")
     private String Text;
 
     @XmlAttribute
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     @XmlElement(name = "Text")
@@ -21,7 +25,7 @@ public class AdditionalItems {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public String getText() {

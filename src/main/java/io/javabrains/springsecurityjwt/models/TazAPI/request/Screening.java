@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,10 +9,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "type","qualifier", "name", "vendor" })
 public class Screening {
 
+    @JsonProperty("type")
     private String type;                    // assumedname | bankruptcy | civil | credit | criminal | custom |drug | education | employment | eviction | executivesummary | license | lienjudgment | healthcare_compliance | personsearch | reference | resident | scorecard | sex_offender | ssn | workcomp
+    @JsonProperty("qualifier")
     private String qualifier;               // See Below commented Text
+    @JsonProperty("name")
     private String name;                    // for custom
 
+    @JsonProperty("Vendor")
     private Vendor vendor;                  //
 
     @XmlAttribute

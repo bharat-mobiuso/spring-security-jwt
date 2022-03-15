@@ -1,18 +1,25 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 @XmlRootElement(name = "BackgroundCheck")
 @XmlType(propOrder = { "userId", "password", "backgroundSearchPackage", "userArea" })      // Don't Understand whats going in here
 public class BackgroundCheck {
 
+    @JsonProperty("userId")
     private String userId;      // 50 Char
+    @JsonProperty("password")
     private String password;    // 50 Char
 
+    @JsonProperty("BackgroundSearchPackage")
     private BackgroundSearchPackage backgroundSearchPackage;
+    @JsonProperty("UserArea")
     private UserArea userArea;
 
     @XmlAttribute

@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,16 +9,24 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = { "action", "type", "referenceId", "reference", "personalData","screenings","supportingDocumentation","organization" })
 public class BackgroundSearchPackage {
-
+    @JsonProperty("action")
     private String action;      // submit | status | searchstatus | addcharge | add | url
+    @JsonProperty("type")
     private String type;        //
+
+    @JsonProperty("ReferenceId")
     private String ReferenceId; // 64 Char
+    @JsonProperty("Reference")
     private String Reference;   // 64 Char
 
 //    private LinkedApplicants linkApplicants;    // for tenant background checks
+    @JsonProperty("Organization")
     private Organization organization;
+    @JsonProperty("PersonalData")
     private PersonalData personalData;
+    @JsonProperty("Screenings")
     private Screenings screenings;
+    @JsonProperty("SupportingDocumentation")
     private SupportingDocumentation supportingDocumentation;
 //    private UserArea userArea;
 

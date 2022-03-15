@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -6,6 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "personName" })
 public class Alias {
 
+    @JsonProperty("PersonName")
     private PersonName personName;
 
     @XmlElement(name = "PersonName")

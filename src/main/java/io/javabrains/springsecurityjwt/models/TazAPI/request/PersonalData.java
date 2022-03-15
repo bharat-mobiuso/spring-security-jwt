@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -6,14 +8,22 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "personName", "alias", "demographicDetail", "postalAddress","emailAddress","telephone", "sendText", "race"  })
 public class PersonalData {
 
+    @JsonProperty("Telephone")
     private String Telephone;           // 24 Char
+    @JsonProperty("SendText")
     private String SendText;            // Yes | No
+    @JsonProperty("EmailAddress")
     private String EmailAddress;        // 256 Char
+    @JsonProperty("Race")
     private String Race;                // 32 Char
 
+    @JsonProperty("PersonName")
     private PersonName personName;
+    @JsonProperty("PostalAddress")
     private PostalAddress postalAddress;
+    @JsonProperty("DemographicDetail")
     private DemographicDetail demographicDetail;
+    @JsonProperty("Alias")
     private Alias alias;
 
     @XmlElement(name = "Telephone")

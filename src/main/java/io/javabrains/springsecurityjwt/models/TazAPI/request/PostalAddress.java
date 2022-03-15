@@ -1,4 +1,6 @@
-package io.javabrains.springsecurityjwt.models.TazAPI.Request;
+package io.javabrains.springsecurityjwt.models.TazAPI.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,12 +10,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "type", "countryCode","postalCode", "region", "municipality", "deliveryAddress" })
 public class PostalAddress {
 
+    @JsonProperty("type")
     private String type;                // current | previous
+    @JsonProperty("CountryCode")
     private String CountryCode;         // 2 Char   ISO 3166-1 alpha-2 code
+    @JsonProperty("PostalCode")
     private String PostalCode;          // 32 Char
+    @JsonProperty("Region")
     private String Region;              // 2 Char   USPS-2-letter State Code
+    @JsonProperty("Municipality")
     private String Municipality;        // 32 Char
 
+    @JsonProperty("DeliveryAddress")
     private DeliveryAddress deliveryAddress;
 
     @XmlAttribute

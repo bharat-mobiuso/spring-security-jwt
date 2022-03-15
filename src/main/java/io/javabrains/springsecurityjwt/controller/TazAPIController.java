@@ -1,11 +1,11 @@
 package io.javabrains.springsecurityjwt.controller;
 
-import io.javabrains.springsecurityjwt.models.TazAPI.Request.BackgroundCheck;
+import io.javabrains.springsecurityjwt.models.TazAPI.request.BackgroundCheck;
+import io.javabrains.springsecurityjwt.models.TazAPI.response.BackgroundReports;
 import io.javabrains.springsecurityjwt.services.TazAPIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,15 +19,23 @@ public class TazAPIController {
     @Autowired
     TazAPIService tazAPIService;
 
-    @GetMapping(value = "/tazapi", produces = { MediaType.APPLICATION_XML_VALUE})
-    public BackgroundCheck getWeather() throws Exception {
-        //log.info("CITY : " + city + "OUTPUT: " + weatherDataService.getWeather(city).toString().toString());
-        return tazAPIService.getXMLRequest();
+    @PostMapping(value = "/tazapi2",consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE })
+    public BackgroundReports getdata1(@RequestBody BackgroundCheck backgroundCheck) throws Exception {
+        //log.info("POST : " + backgroundCheck.getBackgroundSearchPackage().getScreenings().getScreening().get(0).getVendor().getValue());
+
+        return tazAPIService.postXmlUsingJson1(backgroundCheck);
     }
 
-    @PostMapping(value = "/postxml", consumes = MediaType.APPLICATION_XML_VALUE)
-    public void postxml(@RequestBody BackgroundCheck backgroundCheck){
-        log.info(backgroundCheck.getPassword());
+    @PostMapping(value = "/tazapi1",consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE })
+    public BackgroundCheck getdata2(@RequestBody BackgroundCheck backgroundCheck) throws Exception {
+        //log.info("POST : " + backgroundCheck.getBackgroundSearchPackage().getScreenings().getScreening().get(0).getVendor().getValue());
+
+        return tazAPIService.postXmlUsingJson2(backgroundCheck);
     }
+
+//    @PostMapping(value = "/postxml", consumes = MediaType.APPLICATION_XML_VALUE)
+//    public void postxml(@RequestBody BackgroundCheck backgroundCheck){
+//        log.info(backgroundCheck.getPassword());
+//    }
 
 }

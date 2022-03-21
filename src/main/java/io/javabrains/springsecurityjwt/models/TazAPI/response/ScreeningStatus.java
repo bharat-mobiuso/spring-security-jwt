@@ -3,17 +3,27 @@ package io.javabrains.springsecurityjwt.models.TazAPI.response;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = { "orderStatus" })
+@XmlType(propOrder = { "orderStatus", "orderDecision" })
 public class ScreeningStatus {
 
-    private String OrderStatus;
+    private OrderStatus orderStatus;
+    private String OrderDecision;
 
-    public String getOrderStatus() {
-        return OrderStatus;
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public String getOrderDecision() {
+        return OrderDecision;
+    }
+
+    @XmlElement(name = "OrderDecision")
+    public void setOrderDecision(String orderDecision) {
+        OrderDecision = orderDecision;
     }
 
     @XmlElement(name = "OrderStatus")
-    public void setOrderStatus(String orderStatus) {
-        OrderStatus = orderStatus;
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 }

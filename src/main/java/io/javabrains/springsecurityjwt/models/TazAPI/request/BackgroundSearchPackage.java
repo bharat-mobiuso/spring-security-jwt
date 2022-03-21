@@ -7,12 +7,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-@XmlType(propOrder = { "action", "type", "referenceId", "reference", "personalData","screenings","supportingDocumentation","organization" })
+@XmlType(propOrder = { "action", "type","orderId", "referenceId", "reference", "personalData","screenings","supportingDocumentation","organization" })
 public class BackgroundSearchPackage {
     @JsonProperty("action")
     private String action;      // submit | status | searchstatus | addcharge | add | url
     @JsonProperty("type")
     private String type;        //
+    @JsonProperty("OrderId")
+    private String OrderId;     //
 
     @JsonProperty("ReferenceId")
     private String ReferenceId; // 64 Char
@@ -50,7 +52,12 @@ public class BackgroundSearchPackage {
         Reference = reference;
     }
 
-//    @XmlElement(name = "LinkedApplicants")
+    @XmlElement(name = "OrderId")
+    public void setOrderId(String OrderId) {
+        this.OrderId = OrderId;
+    }
+
+    //    @XmlElement(name = "LinkedApplicants")
 //    public void setLinkApplicants(LinkedApplicants linkApplicants) {
 //        this.linkApplicants = linkApplicants;
 //    }
@@ -100,7 +107,11 @@ public class BackgroundSearchPackage {
         return Reference;
     }
 
-//    public LinkedApplicants getLinkApplicants() {
+    public String getOrderId() {
+        return OrderId;
+    }
+
+    //    public LinkedApplicants getLinkApplicants() {
 //        return linkApplicants;
 //    }
 
